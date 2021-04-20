@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "1055648130032",
+    "project_id": "learnship-b5123",
+    "storage_bucket": "learnship-b5123.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1055648130032:android:0b203ae3a9a5140130b335",
+        "android_client_info": {
+          "package_name": "org.thefirstprincipal.learnship"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1055648130032-340u3v58jr8umg2uvjfff6l88p5blfhq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDSHq2AgAmSeln9N3C_0uvq03pZ1IzN2A8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1055648130032-340u3v58jr8umg2uvjfff6l88p5blfhq.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
