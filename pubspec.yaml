@@ -21,22 +21,34 @@ dependencies:
   cupertino_icons: ^1.0.2
   flutter_staggered_grid_view: ^0.3.4
   cupertino_tabbar: ^1.1.1
-  http: ^0.12.0+2
   youtube_player_flutter: ^7.0.0+7
-  cached_network_image: ^2.2.0+1
   flutter_svg: ^0.19.1
   focused_menu: ^1.0.5
   youtube_api: ^0.8.0
   convex_bottom_bar: ^3.0.0
-  firebase_database: ^6.1.1
-  #http_parser: ^4.0.0
-  firebase_core: ^1.0.2
-  #firebase_auth: ^1.0.1
-  firebase_analytics: ^7.1.1
-  provider: ^5.0.0
-  md2_tab_indicator: ^1.0.2
-  cloud_firestore: ^1.0.3
+  # http: ^0.13.0
+  # http_parser: ^4.0.0
 
+  #Utilities
+  cached_network_image: ^2.4.1
+  enum_to_string: ^1.0.14
+  meta: ^1.2.4
+  equatable: ^1.2.5
+
+  md2_tab_indicator: ^1.0.2
+  youtube_explode_dart: ^1.7.5
+  youtube_parser: ^1.1.0
+  downloads_path_provider: ^0.1.0
+  console: ^4.1.0
+  flutter_bloc: ^6.1.1
+
+  #Firebase
+  cloud_firestore: ^0.14.4
+  firebase_analytics: ^6.3.0
+  firebase_auth: ^0.18.4+1
+  firebase_core: ^0.5.3
+  firebase_storage: ^5.2.0
+  
 dev_dependencies:
   flutter_test:
     sdk: flutter
