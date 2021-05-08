@@ -8,3 +8,4 @@ export 'questroom_screen/questroom_screen.dart';
 export 'bookmark_screen/bookmark_screen.dart';
 export 'createcourse_screen/createcourse_screen.dart';
 export 'profile_screen/profile_screen.dart';
+export 'edit_profile_screen/edit_profile_screen.dart';

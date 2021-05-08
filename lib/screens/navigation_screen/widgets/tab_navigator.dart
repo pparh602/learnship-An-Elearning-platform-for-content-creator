@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:learnship/core/config/custom_router.dart';
 import 'package:learnship/core/enums/enums.dart';
+import 'package:learnship/data/repositories/repositories.dart';
+import 'package:learnship/logic/bloc/blocs.dart';
+import 'package:learnship/logic/cubit/cubits.dart';
 import 'package:learnship/screens/screens.dart';
 
 class TabNavigator extends StatelessWidget {
@@ -42,11 +46,26 @@ class TabNavigator extends StatelessWidget {
       case BottomNavItem.feed:
         return FeedScreen();
       case BottomNavItem.create:
-        return CreateCourseScreen();
+        return BlocProvider(
+          create: (context) => CreatePostCubit(
+            postRepository: context.read<PostRepository>(),
+            storageRepository: context.read<StorageRepository>(),
+            authBloc: context.read<AuthBloc>(),
+          ),
+          child: CreateCourseScreen(),
+        );
       case BottomNavItem.questRoom:
         return QuestRoomScreen();
       case BottomNavItem.profile:
-        return ProfileScreen();
+        return BlocProvider(
+          create: (_) => ProfileBloc(
+            authBloc: context.read<AuthBloc>(),
+            userRepository: context.read<UserRepository>(),
+          )..add(
+              ProfileLoadUser(userId: context.read<AuthBloc>().state.user.uid),
+            ),
+          child: ProfileScreen(),
+        );
       default:
         return Scaffold();
     }

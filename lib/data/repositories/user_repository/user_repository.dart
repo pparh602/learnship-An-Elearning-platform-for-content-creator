@@ -7,7 +7,7 @@ import 'package:meta/meta.dart';
 class UserRepository extends BaseUserRepository {
   final FirebaseFirestore _firebaseFirestore;
 
-  UserRepository({@required FirebaseFirestore firebaseFirestore})
+  UserRepository({FirebaseFirestore firebaseFirestore})
       : _firebaseFirestore = firebaseFirestore ?? FirebaseFirestore.instance;
   @override
   Future<User> getUserWithId({@required String userId}) async {

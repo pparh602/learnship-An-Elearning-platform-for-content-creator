@@ -37,11 +37,6 @@ class CourseListTile extends StatelessWidget {
                   style:
                       TextStyle(color: Colors.red, fontWeight: FontWeight.bold),
                 ),
-                trailing: Icon(
-                  Icons.video_label,
-                  color: Colors.red,
-                  size: 30,
-                ),
                 onTap: () {
                   Navigator.push(
                     context,

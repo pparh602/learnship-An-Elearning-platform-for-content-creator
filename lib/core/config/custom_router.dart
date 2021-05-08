@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:learnship/screens/edit_profile_screen/edit_profile_screen.dart';
 import 'package:learnship/screens/navigation_screen/navigation_screen.dart';
 import 'package:learnship/screens/screens.dart';
 
@@ -33,6 +34,8 @@ class CustomRouter {
   static Route onGenerateNestedRoute(RouteSettings settings) {
     print('Nested Route: ${settings.name}');
     switch (settings.name) {
+      case EditProfileScreen.routeName:
+        return EditProfileScreen.route(args: settings.arguments);
       default:
         return _errorRoute();
     }

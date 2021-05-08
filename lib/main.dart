@@ -25,6 +25,15 @@ class MyApp extends StatelessWidget {
         RepositoryProvider<AuthRepository>(
           create: (_) => AuthRepository(),
         ),
+        RepositoryProvider<UserRepository>(
+          create: (_) => UserRepository(),
+        ),
+        RepositoryProvider<StorageRepository>(
+          create: (_) => StorageRepository(),
+        ),
+        RepositoryProvider<PostRepository>(
+          create: (_) => PostRepository(),
+        ),
       ],
       child: MultiBlocProvider(
         providers: [
@@ -60,85 +69,3 @@ class MyApp extends StatelessWidget {
     );
   }
 }
-
-// class MyApp extends StatelessWidget {
-//   // This widget is the root of your application.
-//   @override
-//   Widget build(BuildContext context) {
-//     return MaterialApp(
-//       title: 'Flutter Demo',
-//       theme: ThemeData(
-//         primarySwatch: Colors.blue,
-//       ),
-//       home: MyHomePage(title: 'BottomAppBar with FAB'),
-//     );
-//   }
-// }
-// class MyHomePage extends StatefulWidget {
-//   MyHomePage({Key key, this.title}) : super(key: key);
-
-//   final String title;
-
-//   @override
-//   _MyHomePageState createState() => new _MyHomePageState();
-// }
-// class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
-//   int _lastSelected = 0;
-//   TextEditingController searchController = TextEditingController();
-
-//   YoutubeAPI ytApi = YoutubeAPI(API_KEY);
-//   List<YT_API> ytResult = [];
-
-//   callAPI() async {
-//     ytResult = await ytApi.search(searchController.text);
-//     ytResult = await ytApi.nextPage();
-//     ytResult = await ytApi.nextPage();
-//     setState(() {});
-//   }
-
-//   @override
-//   void initState() {
-//     super.initState();
-//     //callAPI();
-//     print('hello');
-//   }
-
-//   final List _children = [
-//     HomeScreen(),
-//     FeedScreen(),
-//     QuestRoomScreen(),
-//     BookmarkScreen(),
-//   ];
-
-//   void _selectedTab(int index) {
-//     setState(() {
-//       _lastSelected = index;
-//     });
-//   }
-
-//   void _selectedFab(int index) {
-//     setState(() {
-//       _lastSelected = index;
-//     });
-//   }
-
-//   @override
-//   Widget build(BuildContext context) {
-//     return SafeArea(
-//       child: Scaffold(
-//         body: _children[_lastSelected],
-//         bottomNavigationBar: ConvexAppBar(
-//           items: [
-//             TabItem(icon: Icons.home, title: 'Home'),
-//             TabItem(icon: Icons.map, title: 'Feed'),
-//             TabItem(icon: Icons.add, title: 'Add'),
-//             TabItem(icon: Icons.message, title: 'Quest Room'),
-//             TabItem(icon: Icons.people, title: 'Profile'),
-//           ],
-//           initialActiveIndex: 0, //optional, default as 0
-//           onTap: (int i) => _selectedTab(i),
-//         ),
-//       ),
-//     );
-//   }
-// }

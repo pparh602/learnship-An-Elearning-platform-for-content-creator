@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:learnship/thread/lib/ThreadPagemain.dart';
 
 class QuestRoomScreen extends StatefulWidget {
   QuestRoomScreen({Key key}) : super(key: key);
@@ -49,6 +50,19 @@ class _QuestRoomScreenState extends State<QuestRoomScreen> {
                 courseDesc: 'Statistical from zero to hero.',
                 size: size,
               ),
+            ),
+            FloatingActionButton(
+              // isExtended: true,
+              child: Icon(Icons.add),
+              backgroundColor: Colors.green,
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (_) => MyAppThread(),
+                  ),
+                );
+              },
             ),
           ],
         ),

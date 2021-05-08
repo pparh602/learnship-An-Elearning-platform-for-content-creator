@@ -55,7 +55,7 @@ class LoginScreen extends StatelessWidget {
                           mainAxisSize: MainAxisSize.min,
                           children: [
                             const Text(
-                              'Instagram',
+                              'LearnShip',
                               style: TextStyle(
                                   fontSize: 28.0, fontWeight: FontWeight.bold),
                               textAlign: TextAlign.center,
