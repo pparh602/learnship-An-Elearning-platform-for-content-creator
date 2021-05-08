@@ -1,8 +1,11 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
+import 'package:learnship/logic/bloc/blocs.dart';
 import 'package:learnship/screens/courselist_screen/courselist_screen.dart';
 import 'package:learnship/screens/home_page/search_screen.dart';
+import 'package:learnship/screens/widgets/error_dialog.dart';
 import 'package:youtube_api/youtube_api.dart';
 import 'package:youtube_explode_dart/youtube_explode_dart.dart';
 
@@ -53,30 +56,44 @@ class _HomeScreenState extends State<HomeScreen> {
         backgroundColor: Color(0xFFF8F8F8),
         body: Column(
           children: [
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Spacer(
-                  flex: 1,
-                ),
-                Text(
-                  'Hi, Parth!',
-                  style: TextStyle(
-                    fontSize: size.height * 0.04,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-                Spacer(
-                  flex: 9,
-                ),
-                CircleAvatar(
-                  radius: size.height * 0.04,
-                  backgroundImage: AssetImage('assets/course_image/Parth.jpg'),
-                ),
-                Spacer(
-                  flex: 2,
-                ),
-              ],
+            BlocConsumer<ProfileBloc, ProfileState>(
+              listener: (context, state) {
+                print(state.user.username.toString());
+                if (state.status == ProfileStatus.error) {
+                  showDialog(
+                    context: context,
+                    builder: (context) =>
+                        ErrorDialog(content: state.failure.message),
+                  );
+                }
+              },
+              builder: (context, state) {
+                return Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Spacer(
+                      flex: 1,
+                    ),
+                    Text(
+                      state.user.username.toString(),
+                      style: TextStyle(
+                        fontSize: size.height * 0.04,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    Spacer(
+                      flex: 9,
+                    ),
+                    CircleAvatar(
+                      radius: size.height * 0.04,
+                      backgroundImage: NetworkImage(state.user.profileImageUrl),
+                    ),
+                    Spacer(
+                      flex: 2,
+                    ),
+                  ],
+                );
+              },
             ),
             //Search Bar
             Container(

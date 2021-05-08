@@ -42,7 +42,15 @@ class TabNavigator extends StatelessWidget {
   Widget _getScreens(BuildContext context, BottomNavItem item) {
     switch (item) {
       case BottomNavItem.home:
-        return HomeScreen();
+        return BlocProvider(
+          create: (context) => ProfileBloc(
+            authBloc: context.read<AuthBloc>(),
+            userRepository: context.read<UserRepository>(),
+          )..add(
+              ProfileLoadUser(userId: context.read<AuthBloc>().state.user.uid),
+            ),
+          child: HomeScreen(),
+        );
       case BottomNavItem.feed:
         return FeedScreen();
       case BottomNavItem.create:
